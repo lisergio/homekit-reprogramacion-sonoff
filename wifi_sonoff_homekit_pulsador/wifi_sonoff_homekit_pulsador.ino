@@ -30,7 +30,7 @@ void callback(const MQTT::Publish& pub) {
       Serial.println("Switch On");
           
     }
-    else
+    if(pub.payload_string() == "off")
     {
       digitalWrite(rele, LOW); // en caso de que el modulo rele funcione al reves, cambiarl HIGH por LOW
       digitalWrite(led, HIGH);
